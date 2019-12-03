@@ -6,9 +6,11 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const passport = require('passport')
 const path = require('path')
+const mustacheExpress = require('mustache-express')
+const PORT = process.env.PORT || 5000
 
 let connectionString = process.env.DATABASE_URL+process.env.DATABASE_SSL;
-
+let app = express();
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
 app.set('views', __dirname+'/views');
@@ -43,3 +45,4 @@ app.get('/', function(req, res){
     res.render('home')
 });
 
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
