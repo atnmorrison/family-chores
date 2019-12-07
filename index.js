@@ -42,7 +42,30 @@ if (process.env.REDISTOGO_URL) {
 }
 
 app.get('/', function(req, res){
-    res.render('home')
+  res.render('home');
 });
+
+app.get('/login', function(req, res){
+  res.render('login');
+});
+
+
+/* API Endpionts */
+app.get('/api/user/create', function(req, res) {
+  //type could be parent or child 
+
+});
+
+/* create a new chore */
+app.get('/api/chore/create', function(req, res) {
+
+});
+
+/* assign the chore to someone in the family */ 
+app.get('/api/chore/assign', function(req, res){
+
+});
+
+
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
