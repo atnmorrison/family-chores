@@ -1,13 +1,13 @@
 import 'react-app-polyfill/ie11'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import EvalForm from './EvalForm';
+import RegisterForm from './RegisterForm';
   
 const element = (
-    <EvalForm/>
+    <RegisterForm />
 );
     
 ReactDOM.render(
     element,
-    document.getElementById('app')
+    document.getElementById('registerContainer')
 );
