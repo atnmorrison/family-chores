@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class SLDSForm extends React.Component {
+class FCForm extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -14,4 +14,4 @@ class SLDSForm extends React.Component {
     }
 }
 
-export default SLDSForm; 
+export default FCForm; 

@@ -5,8 +5,10 @@ const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const passport = require('passport')
+const LocalStrategy = require('passport-local')
 const path = require('path')
 const mustacheExpress = require('mustache-express')
+const userRoutes = require('./routers/user')
 const PORT = process.env.PORT || 5000
 
 let connectionString = process.env.DATABASE_URL+process.env.DATABASE_SSL;
@@ -41,6 +43,8 @@ if (process.env.REDISTOGO_URL) {
    app.use(session({secret: 'somethingclever', saveUninitialized: true, resave: true}));
 }
 
+app.use('/user', userRoutes);
+
 app.get('/', function(req, res){
   res.render('home');
 });
@@ -49,6 +53,9 @@ app.get('/login', function(req, res){
   res.render('login');
 });
 
+app.get('/register', function(req, res){
+  res.render('register');
+});
 
 /* API Endpionts */
 app.get('/api/user/create', function(req, res) {
